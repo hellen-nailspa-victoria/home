@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hellen Nails &amp; Spa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-bg: #FFF0F5;
+            --pink-light: #FFD6E7;
+            --pink-medium: #F4A7C3;
+            --pink-dark: #C2185B;
+            --soft-black: #1A1A1A;
+            --muted-rose: #D4A5A5;
+            --warm-grey: #9B9B9B;
+            --accent-gold: #C4A57B;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pink-bg);
+            color: var(--soft-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            background: linear-gradient(180deg, #FFE4EF 0%, var(--pink-bg) 100%);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .logo-image {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            animation: slideDown 1s ease 0.2s both;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .decorative-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, var(--pink-medium), var(--accent-gold));
+            margin: 2rem auto;
+            animation: expand 1s ease 0.6s both;
+        }
+
+        @keyframes expand {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 2rem 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--warm-grey);
+            font-weight: 300;
+        }
+
+        /* Photo Gallery */
+        .gallery-section {
+            padding: 3rem 2rem;
+            background: var(--white);
+        }
+
+        .gallery-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+            color: var(--soft-black);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 2px 8px rgba(194, 24, 91, 0.1);
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(194, 24, 91, 0.2);
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #FFE4EF 0%, #FFF0F5 100%);
+            padding: 4rem 2rem;
+            margin: 0;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.8s forwards;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .about-item {
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--pink-medium);
+        }
+
+        .about-item:nth-child(1) { animation-delay: 1s; }
+        .about-item:nth-child(2) { animation-delay: 1.2s; }
+        .about-item:nth-child(3) { animation-delay: 1.4s; }
+        .about-item:nth-child(4) { animation-delay: 1.6s; }
+
+        .about-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--pink-dark);
+        }
+
+        .about-item p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--warm-grey);
+            font-weight: 300;
+        }
+
+        /* Services */
+        .services-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .services-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+            color: var(--soft-black);
+        }
+
+        .service-category {
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem 1.5rem 0.5rem;
+            box-shadow: 0 2px 12px rgba(194, 24, 91, 0.07);
+        }
+
+        .service-category:nth-child(2) { animation-delay: 1.2s; }
+        .service-category:nth-child(3) { animation-delay: 1.4s; }
+        .service-category:nth-child(4) { animation-delay: 1.6s; }
+        .service-category:nth-child(5) { animation-delay: 1.8s; }
+        .service-category:nth-child(6) { animation-delay: 2s; }
+        .service-category:nth-child(7) { animation-delay: 2.2s; }
+        .service-category:nth-child(8) { animation-delay: 2.4s; }
+        .service-category:nth-child(9) { animation-delay: 2.6s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+        }
+
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--pink-dark);
+            white-space: nowrap;
+        }
+
+        .category-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--pink-medium), transparent);
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(244, 167, 195, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            padding-left: 0.75rem;
+            background: rgba(244, 167, 195, 0.08);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--soft-black);
+            flex: 1;
+        }
+
+        .service-dots {
+            flex: 0 0 auto;
+            border-bottom: 1px dotted var(--pink-medium);
+            margin: 0 1rem;
+            flex-grow: 1;
+            opacity: 0.4;
+        }
+
+        .service-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--pink-dark);
+            white-space: nowrap;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem 4rem;
+            background: linear-gradient(to bottom, transparent, rgba(244, 167, 195, 0.15));
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--pink-dark);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .cta-button:hover::before { left: 0; }
+        .cta-button span { position: relative; z-index: 1; }
+        .cta-button:hover { color: var(--soft-black); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #3D0026, #7B1D45);
+            color: var(--white);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: var(--pink-light);
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+
+        .footer-info a {
+            color: var(--pink-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info a:hover { color: var(--accent-gold); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-image { max-width: 200px; }
+            .services-title { font-size: 2rem; }
+            .category-title { font-size: 1.4rem; }
+            .service-item { flex-wrap: wrap; }
+            .service-dots { display: none; }
+            .service-price {
+                width: 100%;
+                text-align: right;
+                margin-top: 0.2rem;
+            }
+            .gallery-grid img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="hellen_logo.png" alt="Hellen Nails &amp; Spa" class="logo-image">
+        <div class="decorative-line"></div>
+    </header>
+
+    <section class="hero">
+        <p>Bring the beauty to your nails. Experience personalized care and exceptional service in a welcoming, family-owned atmosphere.</p>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">Our Work</h2>
+        <div class="gallery-grid">
+            <img src="photo/600452196_851127224326939_2840946776037285725_n.jpg" alt="Nail art at Hellen Nails">
+            <img src="photo/603864881_851127174326944_8574786309337219459_n.jpg" alt="Nail design at Hellen Nails">
+            <img src="photo/603922863_851127200993608_5386668848283501159_n.jpg" alt="Nail art at Hellen Nails">
+            <img src="photo/660868082_932948776144783_7384177089090828178_n.jpg" alt="Nail design at Hellen Nails">
+            <img src="photo/661558028_932948752811452_1167996107421352857_n.jpg" alt="Nail art at Hellen Nails">
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>Family-Owned Since March 2022</h3>
+                    <p>At Hellen Nails &amp; Spa, we take pride in being a family-owned business, dedicated to providing a personal and welcoming atmosphere for every customer.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Comprehensive Services</h3>
+                    <p>We offer a wide range of services including manicures &amp; pedicures, lash lifts &amp; tinting, waxing, and eyebrow shaping. Whatever your beauty needs, we've got you covered with good prices.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Cleanliness, Comfort &amp; Professional</h3>
+                    <p>Your well-being is our top priority. We maintain the highest standards of cleanliness to ensure a safe and relaxing experience.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Convenient Hours</h3>
+                    <p>Open Monday through Saturday from 9 AM – 7 PM, we make it easy for you to find time for self-care in your busy schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <main class="services-container">
+        <h2 class="services-title">Our Services</h2>
+
+        <!-- Manicures -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Manicures</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Regular Manicure</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$30</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Gel Manicure</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$45</span>
+            </div>
+        </div>
+
+        <!-- Pedicures -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Pedicures</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Classic Pedicure with Regular Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$40</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Classic Pedicure with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$55</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Deluxe Pedicure with Regular Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$55</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Deluxe Pedicure with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$70</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Kids Pedicure with Gel Polish (12 and under)</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$40</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Kids Pedicure with Regular Polish (under 12)</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$30</span>
+            </div>
+        </div>
+
+        <!-- Nail Enhancement -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Nail Enhancement Services</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Acrylic Full Set with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$60</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Acrylic Fill with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$50</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Acrylic Ombre</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Acrylic Ombre Fill</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$55</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">UV Gel Full Set</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">UV Gel Fill</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$55</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Gel X</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$60</span>
+            </div>
+        </div>
+
+        <!-- Nail Art & Design -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Nail Art &amp; Design</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Nail Art (per nail)</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$5+</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">French Tip</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$5+</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Hand Nails Trim</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$15</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Toes Nails Trim</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$15</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Paraffin</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$10</span>
+            </div>
+        </div>
+
+        <!-- Eyelash & Brow -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Eyelash Extension &amp; Brow Services</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyelash Extension – Volume New Set</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$120</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyelash Extension – Volume Fill</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$85</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyelash Extension – Classic New Set</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$100</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyelash Extension – Classic Fill</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Lash Lift</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$60</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Lift &amp; Tint</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$75</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Brow Lamination</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+        </div>
+
+        <!-- Combo Packages -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Combo Packages</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Deluxe Pedicure &amp; Manicure with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$120</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Deluxe Pedicure &amp; Manicure with Regular Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$90</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Pedicure &amp; Manicure with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$95</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Pedicure &amp; Manicure with Regular Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Pedicure &amp; Manicure – Gel on Hands or Toes</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$80</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Kids Pedicure &amp; Manicure with Gel Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$65</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Kids Pedicure &amp; Manicure with Regular Polish</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$45</span>
+            </div>
+        </div>
+
+        <!-- Additional Services -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Additional Services</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Gel Polish Change on Hands or Toes</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$30</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Regular Polish Change on Hands or Toes</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$20</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Gel Polish Removal (Trim &amp; Shape)</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$15</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Acrylic Nail Removal (Trim &amp; Shape)</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$22</span>
+            </div>
+        </div>
+
+        <!-- Waxing -->
+        <div class="service-category">
+            <div class="category-header">
+                <h3 class="category-title">Waxing Services</h3>
+                <div class="category-line"></div>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyebrow Wax</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$15</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Eyebrow Tint</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$30</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Upper Lip</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$10</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Chin</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$15</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Full Face</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$35</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Full Arms</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$45</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Half Arms</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$30</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Under Arms</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$20</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Full Legs</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$60</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Half Legs</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$38</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Back</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$45</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Bikini Line</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$35</span>
+            </div>
+            <div class="service-item">
+                <span class="service-name">Brazilian</span>
+                <span class="service-dots"></span>
+                <span class="service-price">$50</span>
+            </div>
+        </div>
+
+    </main>
+
+    <section class="cta-section">
+        <a href="tel:+12503916996" class="cta-button"><span>Book Appointment</span></a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-title">Visit Us</h3>
+            <div class="footer-info">
+                <p>2675 Wilfert Rd #101<br>Victoria, BC V9B 6M3</p>
+                <p style="margin-top: 1rem;">
+                    <a href="tel:+12503916996">(250) 391-6996</a><br>
+                    Open Mon–Sat: 9:00 AM – 7:00 PM<br>
+                    Sunday: Closed
+                </p>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem;">
+                    Visit Hellen Nails &amp; Spa today and experience the difference in personalized care and exceptional service.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
